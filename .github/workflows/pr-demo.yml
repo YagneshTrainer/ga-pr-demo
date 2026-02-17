@@ -1,12 +1,25 @@
-name: pr-basics demo
+# name: pr-basics demo
 
+
+# on:
+#     pull_request:
+
+# jobs:
+#     show-event:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: print the event name
+#               run: echo "This event was created by ${{ github.event_name }}"
+
+name: pr-action demo
 
 on:
     pull_request:
+        types: [opened, synchronized, closed]
 
 jobs:
-    show-event:
+    activity-check:
         runs-on: ubuntu-latest
         steps:
-            - name: print the event name
-              run: echo "This event was created by ${{ github.event_name }}"
+            - name: Print activity name
+              run: echo "Print the action type ${{ github.event.action}}"
